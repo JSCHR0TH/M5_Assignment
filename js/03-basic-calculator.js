@@ -37,7 +37,6 @@ function calculate (x, y, operation){
         case '/':
             calculation = x / y;
             break;
-        //default: calculation = "Invalid operator was entered!"                    //replaced with do-while loop below
     }
     return calculation
 }
@@ -47,24 +46,31 @@ let firstNum;
 let secondNum;
 let operation;
 
-
 // COLLECT FIRST NUMBER FROM USER
-
-do {
+do {    
     firstNum = parseFloat(prompt ("Enter any number:"));
+    if (isNaN(firstNum)) {
+        alert ("Please enter a number.")
+    }
 } while (isNaN(firstNum));
 
 // COLLECT SECOND NUMBER FROM USER
-
 do {
-    secondNum = parseFloat(prompt ("Enter a second number:"))
+    secondNum = parseFloat(prompt ("Enter a second number:"));
+    if (isNaN(secondNum)) {
+        alert ("Please enter a number.")
+    }
 } while (isNaN(secondNum));
 
 
 // COLLECT OPERATION TO PERFORM (+,-,*,/) FROM USER
 
 do {
-    operation= prompt ("Enter the operator you want to use (+,-,*,/):")
+    operation= prompt ("Enter the operator you want to use ( + , -, * , / ):")
+
+    if (operation !== "+" && operation !== "-" && operation !== "*" && operation !== "/") {
+        alert("Invalid operator. Please try again.")
+    }
 } while (operation !== "+" && operation !== "-" && operation !== "*" && operation !== "/");
 
 
